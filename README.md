@@ -54,6 +54,8 @@ Se utilizará Unity 2022.3.5f1 para desarrollar un entorno interactivo y visualm
 
 </details>
 
+*Aún no sabemos bien si usaremos estas clases como tal, ya que aún no hemos encontrado el repositorio en el que nos vamos a fijar, pero damos por hecho que habrá algo parecido. 
+
 ## Estrategias de la IA
 La IA puede alternar entre dos estrategias principales, que se evalúan y ajustan continuamente:
 1. **Target the Strongest (TTS):** Prioriza ataques contra los enemigos con mayor capacidad ofensiva.
