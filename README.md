@@ -85,9 +85,10 @@ classDiagram
     }
     CombatSystem "1" *-- "many" Character : contains
 ```
+
 ## Pruebas y Evaluación
 Las pruebas se centrarán en la efectividad de las estrategias de IA, midiendo la capacidad de adaptación y la toma de decisiones en situaciones de combate variadas. Se utilizarán métricas como tasa de victoria, supervivencia de personajes y cambios de estrategia efectuados.
----
+
 
 ## Documentación y Repositorio
 La documentación completa del proyecto, incluyendo código, recursos y un vídeo demostrativo, estará disponible en un repositorio de GitHub. Esto permitirá una revisión detallada del enfoque y la implementación de las estrategias de IA en un entorno de combate dinámico.
