@@ -61,7 +61,72 @@ La IA puede alternar entre tres estrategias principales, que se evalúan y ajust
 3. **Cover Utilization (CU):** Utiliza la cobertura de manera efectiva para minimizar el daño recibido.
 
 ## Diagrama de Clases
+```mermaid
+graph TD
+    A[Inicio] --> B[Awake]
+    B --> C{¿Jugador encontrado?}
+    C -- Sí --> D[Configurar objetivos]
+    C -- No --> E[Estado: Idle]
+    D --> F[Start]
+    F --> G{¿Tiene objetivo?}
+    G -- Sí --> H[Estado: Chasing]
+    H --> I[OnTargetDeath]
+    I --> E
+    G -- No --> E
+    E --> J[Update]
+    J --> K{¿Tiene objetivo?}
+    K -- Sí --> L[Actualizar comportamiento]
+    L --> M{¿Dentro de rango de ataque?}
+    M -- Sí --> N[Iniciar ataque]
+    N --> O[PerformAttack]
+    O --> P{¿Ataque completado?}
+    P -- Sí --> Q[EndAttack]
+    Q --> H
+    P -- No --> O
+    M -- No --> H
+    K -- No --> E
 
+    subgraph Configurar objetivos
+        D1[Obtener Transform del jugador]
+        D2[Obtener LivingEntity del jugador]
+        D3[Calcular radios de colisión]
+        D1 --> D2 --> D3 --> D
+    end
+
+    subgraph Actualizar comportamiento
+        L1[Estado: Chasing]
+        L2[Actualizar ruta hacia el jugador]
+        L1 --> L2
+    end
+
+    subgraph Iniciar ataque
+        N1[Estado: Attacking]
+        N2[Deshabilitar NavMeshAgent]
+        N3[Calcular posición de ataque]
+        N4[Interpolar hacia posición de ataque]
+        N1 --> N2 --> N3 --> N4
+    end
+
+    subgraph Realizar ataque
+        O1[Incrementar porcentaje de ataque]
+        O2[Interpolar posición]
+        O3{¿Ha aplicado daño?}
+        O4[Aplicar daño al jugador]
+        O5{¿Ataque completado?}
+        O1 --> O2 --> O3
+        O3 -- No --> O4
+        O3 -- Sí --> O5
+        O4 --> O5
+        O5 -- No --> O2
+    end
+
+    subgraph Terminar ataque
+        Q1[Estado: Chasing]
+        Q2[Habilitar NavMeshAgent]
+        Q3[Restaurar color de material]
+        Q1 --> Q2 --> Q3
+    end
+```
 ```mermaid
 classDiagram
     class CombatSystem {
