@@ -61,6 +61,7 @@ La IA puede alternar entre tres estrategias principales, que se evalúan y ajust
 3. **Cover Utilization (CU):** Utiliza la cobertura de manera efectiva para minimizar el daño recibido.
 
 ## Diagrama de Clases
+### Diagrama de Funcionamiento del Enemigo
 ```mermaid
 graph TD
     A[Inicio] --> B[Awake]
@@ -127,6 +128,10 @@ graph TD
         Q1 --> Q2 --> Q3
     end
 ```
+Este diagrama muestra los principales estados y transiciones del enemigo, incluyendo la configuración inicial, la actualización del comportamiento, el inicio del ataque, la realización del ataque y la finalización del ataque.
+---
+
+
 ```mermaid
 classDiagram
     class CombatSystem {
