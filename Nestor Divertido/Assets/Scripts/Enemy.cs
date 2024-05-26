@@ -45,8 +45,7 @@ public class Enemy : LivingEntity
         targetCollisionRadius = target.GetComponent<CapsuleCollider>().radius;
     }
 
-    public override void Start()
-    {
+    public override void Start() {
         base.Start();
 
         // Si tiene un objetivo, cambia el estado a Persiguiendo
@@ -55,21 +54,10 @@ public class Enemy : LivingEntity
     }
 
     // Establece las características del enemigo
-    public void SetCharacteristics(float moveSpeed, int hitsToKillPlayer, float enemyHealth, Color skinColor)
-    {
+    public void SetCharacteristics(float moveSpeed, int hitsToKillPlayer, float enemyHealth, Color skinColor) {
         pathfinder.speed = moveSpeed;
-
         damage = Mathf.Ceil(targetEntity.startingLife / hitsToKillPlayer);
-
         startingLife = enemyHealth;
-
-        ParticleSystem.MinMaxGradient color = new ParticleSystem.MinMaxGradient();
-        color.mode = ParticleSystemGradientMode.Color;
-        color.color = new Color(skinColor.r, skinColor.g, skinColor.b, 1f);
-
-        ParticleSystem.MainModule main = deathEffect.main;
-        main.startColor = color;
-
         skinMaterial.color = skinColor;
         originalColor = skinColor;
     }

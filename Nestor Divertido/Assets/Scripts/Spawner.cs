@@ -45,6 +45,7 @@ public class Spawner : MonoBehaviour {
     }
 
     void Update() {
+        Debug.Log(enemiesRemainingToSpawn);
         // Genera enemigos según el tiempo especificado
         if ((enemiesRemainingToSpawn > 0 || currentWave.infinite) && Time.time > enemyNextSpawnTime) {
             enemiesRemainingToSpawn--;
@@ -92,9 +93,13 @@ public class Spawner : MonoBehaviour {
     void InstantiateEnemy() {
         Transform spawnTile = map.GetRandomOpenTile();
         Enemy spawnedEnemy = Instantiate(enemy, spawnTile.position + Vector3.up, Quaternion.identity) as Enemy;
+        //Debug.Log("B");
         spawnedEnemy.name = "Fede_" + enemySpawnedCount.ToString();
+        //Debug.Log("B");
         spawnedEnemy.OnDeath += OnEnemyDeath;
+        //Debug.Log("B");
         spawnedEnemy.SetCharacteristics(currentWave.moveSpeed, currentWave.hitsToKillPlayer, currentWave.enemyHealth, currentWave.skinColor);
+        //Debug.Log("C");
     }
 
     // Maneja la recolección de armas
