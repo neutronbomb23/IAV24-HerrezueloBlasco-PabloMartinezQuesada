@@ -728,10 +728,10 @@ GameObject:
   - component: {fileID: 136448301860371718}
   - component: {fileID: 23145072610906336}
   - component: {fileID: 54920094185632388}
-  - component: {fileID: 114206832340054318}
   - component: {fileID: 195364019589130298}
   - component: {fileID: 1307793068039523416}
   - component: {fileID: -8331724882914843390}
+  - component: {fileID: 1293522109355742793}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -856,19 +856,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114206832340054318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537194078531484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0b94232570f4d6ea0472e31309b708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  desiredPositionByAI: {x: 0, y: 0, z: 0}
 --- !u!195 &195364019589130298
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -924,10 +911,21 @@ MonoBehaviour:
   startingLifePacks: 2
   spawnPoint: {x: 0, y: 0, z: 0}
   thresholdCursorDistanceSquared: 1
-  crosshairs: {fileID: 0}
   isInvincible: 0
   invincibilityCoolDown: 1.5
-  isAIControlled: 1
+--- !u!114 &1293522109355742793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537194078531484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9812388c11c64524da4819e01bb44519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desiredPositionByAI: {x: 0, y: 0, z: 0}
 --- !u!1 &1549968199836102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,17 +1100,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0841ff1b2e3164d3aa5891cd85738b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireMode: 2
   projectileSpawn:
   - {fileID: 4101103768662442}
-  projectile: {fileID: 114315445907816836, guid: 4a4d14290062545daa4efbc0ceab5b17,
-    type: 3}
+  projectile: {fileID: 0}
   msBetweenShots: 100
-  muzzleVelocity: 20
+  projectileVelocity: 35
   burstCount: 3
-  projectilesPerMag: 3
+  projectilesXCharger: 0
   reloadTime: 1
-  initialMagazines: 2
+  initialChargers: 2
   kickMinMax: {x: 0.05, y: 0.2}
   recoilAngleMinMax: {x: 3, y: 5}
   recoilMoveSettleTime: 0.1
@@ -1547,17 +1543,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0841ff1b2e3164d3aa5891cd85738b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireMode: 2
   projectileSpawn:
   - {fileID: 4616942600055196}
-  projectile: {fileID: 114315445907816836, guid: 4a4d14290062545daa4efbc0ceab5b17,
-    type: 3}
+  projectile: {fileID: 0}
   msBetweenShots: 100
-  muzzleVelocity: 20
+  projectileVelocity: 35
   burstCount: 3
-  projectilesPerMag: 5
+  projectilesXCharger: 0
   reloadTime: 1
-  initialMagazines: 2
+  initialChargers: 2
   kickMinMax: {x: 0.05, y: 0.2}
   recoilAngleMinMax: {x: 3, y: 5}
   recoilMoveSettleTime: 0.1

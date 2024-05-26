@@ -242,6 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4090245249751996}
   - component: {fileID: 65577574650679648}
+  - component: {fileID: -2252678880744526919}
   m_Layer: 15
   m_Name: Gun 01Pickup
   m_TagString: Untagged
@@ -289,6 +290,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2252678880744526919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492079451672972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0700d7dda2b144e8a7606fa1f74597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 50
+  pickupEffect: {fileID: 0}
+  gunToEquip: {fileID: 0}
 --- !u!1 &1583230826777518
 GameObject:
   m_ObjectHideFlags: 0

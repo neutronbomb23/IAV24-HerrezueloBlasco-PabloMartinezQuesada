@@ -25,9 +25,8 @@ public class MapGenerator : MonoBehaviour
 
     Map currentMap;
 
-    private void Awake()
-    {
-        //FindObjectOfType<Spawner>().OnNewWave += this.OnNewWave;
+    private void Awake() {
+        FindObjectOfType<Spawner>().OnNewWave += this.OnNewWave;
     }
 
     void OnNewWave(int waveNumber)
@@ -198,6 +197,7 @@ public class MapGenerator : MonoBehaviour
 
     public Transform GetTileFromPosition(Vector3 position)
     {
+        //Debug.Log(currentMap);
         int x = Mathf.RoundToInt(position.x / tileSize + (currentMap.mapSize.x - 1) / 2f);
         int y = Mathf.RoundToInt(position.z / tileSize + (currentMap.mapSize.y - 1) / 2f);      // we are in the plane (x, z)
 

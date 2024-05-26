@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4871215809644076}
   - component: {fileID: 65894824168079236}
+  - component: {fileID: 1541765465351317746}
   m_Layer: 15
   m_Name: HealthPack
   m_TagString: Pickup
@@ -138,6 +139,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1541765465351317746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751765860329274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb0b99564f6b47a7a2518ed107fc9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 50
+  pickupEffect: {fileID: 0}
 --- !u!1 &1893440080029116
 GameObject:
   m_ObjectHideFlags: 0
