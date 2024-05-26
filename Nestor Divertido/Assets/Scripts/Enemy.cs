@@ -84,25 +84,28 @@ public class Enemy : LivingEntity
 
     private void Update()
     {
-        // Si tiene un objetivo, actualiza su comportamiento según el estado actual
-        switch (currentState)
+        if (!dead)
         {
-            case State.Chasing:
-                UpdatePath();
-                break;
-            case State.Attacking:
-                PerformAttack();
-                break;
-        }
-
-        // Inicia el ataque si está dentro del rango y no está atacando
-        if (Time.time > nextAttackTime && !isAttacking)
-        {
-            float sqrDistanceToTarget = (target.position - this.transform.position).sqrMagnitude;
-            if (sqrDistanceToTarget < Mathf.Pow(attackDistanceThreshold + myCollisionRadius + targetCollisionRadius, 2))
+            // Si tiene un objetivo, actualiza su comportamiento según el estado actual
+            switch (currentState)
             {
-                nextAttackTime = Time.time + timeBetweenAttacks;
-                StartAttack();
+                case State.Chasing:
+                    UpdatePath();
+                    break;
+                case State.Attacking:
+                    PerformAttack();
+                    break;
+            }
+
+            // Inicia el ataque si está dentro del rango y no está atacando
+            if (Time.time > nextAttackTime && !isAttacking)
+            {
+                float sqrDistanceToTarget = (target.position - this.transform.position).sqrMagnitude;
+                if (sqrDistanceToTarget < Mathf.Pow(attackDistanceThreshold + myCollisionRadius + targetCollisionRadius, 2))
+                {
+                    nextAttackTime = Time.time + timeBetweenAttacks;
+                    StartAttack();
+                }
             }
         }
     }

@@ -72,9 +72,6 @@ public class Player : LivingEntity {
                 RefillLife();
             }
         }
-        else {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
     }
 
     void OnNewWave(int waveNumber) {
@@ -94,6 +91,7 @@ public class Player : LivingEntity {
     public override void Die()
     {
         base.Die();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public bool HasAnyBulletInCharger()
