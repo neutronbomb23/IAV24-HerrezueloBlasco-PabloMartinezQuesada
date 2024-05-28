@@ -25,7 +25,6 @@ public class Gun : MonoBehaviour{
     public int currentChargers { get; private set; }
 
     bool triggerReleasedSinceLastShot;
-    int shotsRemainingInBurst;
     public int projectilesRemainingInMag { get; private set; }
     bool isReloading;
 
@@ -35,7 +34,6 @@ public class Gun : MonoBehaviour{
 
     private void Start() {
         muzzleFlash = GetComponent<MuzzleFlash>();
-        shotsRemainingInBurst = burstCount;
 
         projectilesRemainingInMag = projectilesXCharger;
         currentChargers = initialChargers;
@@ -53,6 +51,10 @@ public class Gun : MonoBehaviour{
     }
 
     void Shoot() {
+        Debug.Log("PiumPium");
+        Debug.Log(isOutOfBullets());
+        Debug.Log(nextShotTime);
+        Debug.Log(projectilesRemainingInMag);
         if (!isReloading && Time.time > nextShotTime && projectilesRemainingInMag > 0 && !isOutOfBullets()) {
             if (!triggerReleasedSinceLastShot) { return; }
 
@@ -62,7 +64,7 @@ public class Gun : MonoBehaviour{
                 projectilesRemainingInMag--;
                 tryUpdateAmmoUI();
                 nextShotTime = Time.time + msBetweenShots / 1000;
-                Projectile newProjectile = Instantiate(projectile, projectileSpawn[i].position, projectileSpawn[i].rotation) as Projectile;
+                Projectile newProjectile = Instantiate(projectile, this.transform.position, this.transform.rotation) as Projectile;
                 newProjectile.SetSpeed(projectileVelocity);
             }
             muzzleFlash.Activate();
@@ -80,27 +82,9 @@ public class Gun : MonoBehaviour{
 
         if (!isReloading && projectilesRemainingInMag != projectilesXCharger) {
             currentChargers--;
-            isReloading = true;
-            InvokeRepeating("AnimateReloadStep", 0f, 0.02f);  // Llamar a AnimateReloadStep cada 0.02 segundos
-            Invoke("FinishReload", reloadTime);  // Completar la recarga despuÃ©s de reloadTime segundos
+            projectilesRemainingInMag = projectilesXCharger;
+            tryUpdateAmmoUI();
         }
-    }
-
-    private void AnimateReloadStep() {
-        float reloadSpeed = 1f / reloadTime;
-        float percent = (Time.time % reloadTime) * reloadSpeed;
-        Vector3 initialRot = this.transform.localEulerAngles;
-        float maxReloadAngle = 30f;
-        float interpolation = (-Mathf.Pow(percent, 2) + percent) * 4;
-        float reloadAngle = Mathf.Lerp(0, maxReloadAngle, interpolation);
-        this.transform.localEulerAngles = initialRot + Vector3.left * reloadAngle;
-    }
-
-    private void FinishReload() {
-        CancelInvoke("AnimateReloadStep");
-        isReloading = false;
-        projectilesRemainingInMag = projectilesXCharger;
-        tryUpdateAmmoUI();
     }
 
     public void registerGameUI(UI UI) {
@@ -131,6 +115,5 @@ public class Gun : MonoBehaviour{
 
     public void OnTriggerRelease() {
         triggerReleasedSinceLastShot = true;
-        shotsRemainingInBurst = burstCount;
     }
 }

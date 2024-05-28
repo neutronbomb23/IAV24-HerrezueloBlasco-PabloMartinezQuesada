@@ -5,25 +5,20 @@ using UnityEngine;
 public class GunController : MonoBehaviour {
     public Transform weaponHold;
     public Gun[] allGuns;
+    [SerializeField]
     Gun equippedGun;
 
-
-    public void EquipGun(Gun gunToEquip)
-    {
-        if (equippedGun != null)
-        {
-            Destroy(equippedGun.gameObject);
+    public void EquipGun(Gun gunToEquip) {
+        if (equippedGun == null) {
+            equippedGun = Instantiate(gunToEquip, weaponHold.position, weaponHold.rotation) as Gun;
+            equippedGun.transform.parent = weaponHold;
         }
-        equippedGun = Instantiate(gunToEquip, weaponHold.position, weaponHold.rotation) as Gun;
-        equippedGun.transform.parent = weaponHold;
+
 
         GameObject canvas = GameObject.Find("Canvas");
         if (canvas) {
             UI UI = canvas.GetComponent<UI>();
             equippedGun.registerGameUI(UI);
-        }
-        else {
-            Debug.Log("[GunController] Canvas / GameUI not found! Can't register gun in GameUI!");
         }
     }
 
@@ -54,38 +49,27 @@ public class GunController : MonoBehaviour {
         }
     }
 
-    public void Aim(Vector3 aimPoint)
-    {
+    public void Aim(Vector3 aimPoint) {
         if (equippedGun != null)
         {
             equippedGun.Aim(aimPoint);
         }
     }
 
-    public void Reload()
-    {
-        if (equippedGun != null)
-        {
+    public void Reload() {
+        if (equippedGun != null) {
             equippedGun.Reload();
         }
     }
 
-    public bool HasAnyBulletInCharger()
-    {
-        if (equippedGun.projectilesRemainingInMag > 0)
-        {
+    public bool HasAnyBulletInCharger() {
+        if (equippedGun.projectilesRemainingInMag > 0) {
             return true;
         }
         return false;
     }
 
-    public bool HasAnyChargers()
-    {
-        if (equippedGun.currentChargers > 0)
-        {
-            return true;
-        }
-        return false;
+    public bool HasAnyChargers() {
+        return equippedGun.currentChargers > 0;
     }
-
 }

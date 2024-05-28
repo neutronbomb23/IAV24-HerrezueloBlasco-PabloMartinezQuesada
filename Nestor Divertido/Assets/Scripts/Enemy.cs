@@ -63,15 +63,12 @@ public class Enemy : LivingEntity
     }
 
     // Maneja el daño recibido por el enemigo
-    public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
-    {
-        if (damage >= startingLife && !dead)
-        {
-            if (OnDeathStatic != null)
-            {
+    public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection) {
+        if (damage >= startingLife && !dead) {
+            if (OnDeathStatic != null) {
                 OnDeathStatic();
             }
-            Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)) as GameObject, deathEffect.main.startLifetime.constant);
+            Destroy(this.gameObject);
         }
         base.TakeHit(damage, hitPoint, hitDirection);
     }

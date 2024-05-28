@@ -9,8 +9,7 @@ public class HealthPack : Pickup {
 		if (other.tag == "Player") {
             Player player = other.GetComponent<Player>();
             player.AddLifePack();
-            Destroy(Instantiate(pickupEffect.gameObject, this.transform.position, Quaternion.Euler(new Vector3(90, 0, 0))), pickupEffect.main.duration);
-
+           
             if (OnCollected != null) {           
 				OnCollected();
 			}

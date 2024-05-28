@@ -37,7 +37,7 @@ public class Player : LivingEntity {
     }
 
     public override void TakeDamage(float damage) {
-        Debug.Log(life);
+        //Debug.Log(life);
         if (!isInvincible) {
             life -= damage;
             if (life >= 0 && !dead) {
