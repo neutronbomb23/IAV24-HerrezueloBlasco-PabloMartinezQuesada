@@ -304,7 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 50
   pickupEffect: {fileID: 0}
-  gunToEquip: {fileID: 0}
+  gunToEquip: {fileID: 5861736709273348215, guid: be40e0d31818f4592bef4bcccb0cf1ca,
+    type: 3}
 --- !u!1 &1583230826777518
 GameObject:
   m_ObjectHideFlags: 0

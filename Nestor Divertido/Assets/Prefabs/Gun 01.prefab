@@ -256,6 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 441840}
   - component: {fileID: 11423802}
+  - component: {fileID: 5861736709273348215}
   m_Layer: 0
   m_Name: Gun 01
   m_TagString: Untagged
@@ -304,6 +305,31 @@ MonoBehaviour:
   - {fileID: 21252894}
   - {fileID: 21250666}
   flashTime: 0.05
+--- !u!114 &5861736709273348215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0841ff1b2e3164d3aa5891cd85738b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpawn: []
+  projectile: {fileID: -6520674297792264627, guid: 4a4d14290062545daa4efbc0ceab5b17,
+    type: 3}
+  msBetweenShots: 100
+  projectileVelocity: 40
+  burstCount: 3
+  projectilesXCharger: 0
+  reloadTime: 1
+  initialChargers: 2
+  kickMinMax: {x: 0.05, y: 0.2}
+  recoilAngleMinMax: {x: 3, y: 5}
+  recoilMoveSettleTime: 0.1
+  recoilRotationSettleTime: 0.1
 --- !u!1 &148318
 GameObject:
   m_ObjectHideFlags: 0

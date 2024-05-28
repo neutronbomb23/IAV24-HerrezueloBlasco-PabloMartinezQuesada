@@ -19,9 +19,6 @@ public class Gun : MonoBehaviour{
     public float recoilMoveSettleTime = .1f;
     public float recoilRotationSettleTime = .1f;
 
-    public Transform shell;
-    public Transform shellEjection;
-
     MuzzleFlash muzzleFlash;
 
     float nextShotTime;
@@ -68,8 +65,6 @@ public class Gun : MonoBehaviour{
                 Projectile newProjectile = Instantiate(projectile, projectileSpawn[i].position, projectileSpawn[i].rotation) as Projectile;
                 newProjectile.SetSpeed(projectileVelocity);
             }
-            // Shell ejection
-            Instantiate(shell, shellEjection.position, shellEjection.rotation);
             muzzleFlash.Activate();
             // Recoil
             this.transform.localPosition -= Vector3.forward * Random.Range(kickMinMax.x, kickMinMax.y);

@@ -45,7 +45,6 @@ public class Spawner : MonoBehaviour {
     }
 
     void Update() {
-        Debug.Log(enemiesRemainingToSpawn);
         // Genera enemigos según el tiempo especificado
         if ((enemiesRemainingToSpawn > 0 || currentWave.infinite) && Time.time > enemyNextSpawnTime) {
             enemiesRemainingToSpawn--;
