@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour {
 
     public Image fadePlane;
-    public GameObject gameOverUI;
     public Text scoreUI;
-    public Text gameOverScoreUI;
     public RectTransform healthBar;
 
     public Text ClipCountUI;
@@ -23,6 +21,7 @@ public class UI : MonoBehaviour {
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        Debug.Log(player);
         player.OnChangeLPValue += this.OnUpdateHPValue;
     }
 
@@ -45,6 +44,7 @@ public class UI : MonoBehaviour {
     void OnUpdateHPValue(int ammountToSetHP)
     {
         HPCountUI.text = ammountToSetHP.ToString("D2");
+        Debug.Log("sdfsf");
     }
 
     IEnumerator AnimateNewWaveBanner()

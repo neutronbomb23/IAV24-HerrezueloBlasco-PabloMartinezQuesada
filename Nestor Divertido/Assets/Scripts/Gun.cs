@@ -26,7 +26,6 @@ public class Gun : MonoBehaviour{
 
     bool triggerReleasedSinceLastShot;
     public int projectilesRemainingInMag { get; private set; }
-    bool isReloading;
 
     Vector3 recoilSmoothDampVelocity;
     float recoilRotSmoothDampVelocity;
@@ -45,17 +44,17 @@ public class Gun : MonoBehaviour{
         recoilAngle = Mathf.SmoothDamp(recoilAngle, 0, ref recoilRotSmoothDampVelocity, recoilRotationSettleTime);
         this.transform.localEulerAngles = Vector3.left * recoilAngle;
 
-        if (!isReloading && projectilesRemainingInMag == 0 && !isOutOfBullets()) {
+        if  (projectilesRemainingInMag == 0 && !isOutOfBullets()) {
             Reload();
         }
     }
 
     void Shoot() {
-        Debug.Log("PiumPium");
-        Debug.Log(isOutOfBullets());
-        Debug.Log(nextShotTime);
-        Debug.Log(projectilesRemainingInMag);
-        if (!isReloading && Time.time > nextShotTime && projectilesRemainingInMag > 0 && !isOutOfBullets()) {
+        //Debug.Log("PiumPium");
+        //Debug.Log(isOutOfBullets());
+        //Debug.Log(nextShotTime);
+        //Debug.Log(projectilesRemainingInMag);
+        if (Time.time > nextShotTime && projectilesRemainingInMag > 0 && !isOutOfBullets()) {
             if (!triggerReleasedSinceLastShot) { return; }
 
             // Spawning shot(s)
@@ -80,7 +79,7 @@ public class Gun : MonoBehaviour{
             return;
         }
 
-        if (!isReloading && projectilesRemainingInMag != projectilesXCharger) {
+        if (projectilesRemainingInMag <= 0 && currentChargers > 0) {
             currentChargers--;
             projectilesRemainingInMag = projectilesXCharger;
             tryUpdateAmmoUI();
@@ -98,14 +97,19 @@ public class Gun : MonoBehaviour{
         }
     }
 
+    public void addCharger()
+    {
+        currentChargers++;
+        tryUpdateAmmoUI();
+    }
     public bool isOutOfBullets() {
         return (currentChargers == 0 && projectilesRemainingInMag == 0);
     }
 
     public void Aim(Vector3 aimPoint) {
-        if (!isReloading) {
+       
             this.transform.LookAt(aimPoint);
-        }
+        
     }
 
     public void OnTriggerHold() {

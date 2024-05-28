@@ -37,7 +37,6 @@ public class Player : LivingEntity {
     }
 
     public override void TakeDamage(float damage) {
-        //Debug.Log(life);
         if (!isInvincible) {
             life -= damage;
             if (life >= 0 && !dead) {
@@ -77,6 +76,18 @@ public class Player : LivingEntity {
     void OnNewWave(int waveNumber) {
         life = startingLife;
         gunController.EquipGun(0);
+        ResetPosition();
+    }
+
+    void ResetPosition() {
+        // Desactivar temporalmente el NavMeshAgent
+        agent.enabled = false;
+        
+        // Reiniciar la posición del jugador al punto de spawn
+        this.transform.position = spawnPoint;
+        
+        // Reactivar el NavMeshAgent
+        agent.enabled = true;
     }
 
     void Update()
