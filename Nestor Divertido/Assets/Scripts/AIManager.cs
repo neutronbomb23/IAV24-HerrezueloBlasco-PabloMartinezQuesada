@@ -98,8 +98,7 @@ public class AIManager : MonoBehaviour
                 playerController.desiredPositionByAI = desiredPosition;
             }
 
-            if (reloadGun.Run(context) > 0)
-            {
+            if (reloadGun.Run(context) > 0) {
                 player.gunController.Reload();
             }
 

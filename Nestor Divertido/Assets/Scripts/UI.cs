@@ -44,7 +44,7 @@ public class UI : MonoBehaviour {
     void OnUpdateHPValue(int ammountToSetHP)
     {
         HPCountUI.text = ammountToSetHP.ToString("D2");
-        Debug.Log("sdfsf");
+        //Debug.Log("sdfsf");
     }
 
     IEnumerator AnimateNewWaveBanner()

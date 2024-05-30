@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9300,12 +9301,12 @@ PrefabInstance:
     - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
         type: 3}
       propertyPath: waves.Array.data[0].liveVariation
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
         type: 3}
       propertyPath: waves.Array.data[1].liveVariation
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
         type: 3}
@@ -9315,7 +9316,7 @@ PrefabInstance:
     - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
         type: 3}
       propertyPath: waves.Array.data[3].liveVariation
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
         type: 3}
@@ -58677,6 +58678,11 @@ PrefabInstance:
       propertyPath: startingLife
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 195364019589130298, guid: 4183a08f4e85ef0438587b47ee806280,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1307793068039523416, guid: 4183a08f4e85ef0438587b47ee806280,
         type: 3}
       propertyPath: weaponHold
@@ -58712,10 +58718,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2004159881}
-    - targetCorrespondingSourceObject: {fileID: 1537194078531484, guid: 4183a08f4e85ef0438587b47ee806280,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2004159880}
   m_SourcePrefab: {fileID: 100100000, guid: 4183a08f4e85ef0438587b47ee806280, type: 3}
 --- !u!1 &1607321640
 GameObject:
@@ -73367,18 +73369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7013d3b8478443b386c21397d6b243c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2004159880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633263722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3f3aac4017573449bee7f317aa4e70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2004159881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73392,7 +73382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2004159873}
-  scanner: {fileID: 2004159880}
+  scanner: {fileID: 0}
   coolDownToShoot: 0.8
   scanTimeIntervalInSecs: 1
   enemyScanRange: 20

@@ -82,10 +82,8 @@ public class Player : LivingEntity {
     void ResetPosition() {
         // Desactivar temporalmente el NavMeshAgent
         agent.enabled = false;
-        
         // Reiniciar la posición del jugador al punto de spawn
         this.transform.position = spawnPoint;
-        
         // Reactivar el NavMeshAgent
         agent.enabled = true;
     }
@@ -93,9 +91,8 @@ public class Player : LivingEntity {
     void Update()
     {
         controller.MoveAgent();
-        if (this.targetEntity)
-        {
-            controller.LookAt(this.targetEntity.transform.position);
+        if (this.targetEntity != null) {
+            controller.LookAt(this.targetEntity.transform);
         }
     }
 

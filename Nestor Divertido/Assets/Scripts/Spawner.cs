@@ -92,9 +92,9 @@ public class Spawner : MonoBehaviour {
     // Instancia al enemigo en el tile seleccionado
     void InstantiateEnemy() {
         Transform spawnTile = map.GetRandomOpenTile();
-        Debug.Log(currentWave.liveVariation);
+        //Debug.Log(currentWave.liveVariation);
         
-        Debug.Log(currentWave.enemyHealth);
+        //Debug.Log(currentWave.enemyHealth);
         Enemy spawnedEnemy = Instantiate(enemy, spawnTile.position + Vector3.up, Quaternion.identity) as Enemy;
         int enemyLife = currentWave.enemyHealth + Random.Range(0, currentWave.liveVariation + 1);
      

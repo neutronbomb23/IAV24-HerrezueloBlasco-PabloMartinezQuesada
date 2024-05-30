@@ -106,12 +106,6 @@ public class Gun : MonoBehaviour{
         return (currentChargers == 0 && projectilesRemainingInMag == 0);
     }
 
-    public void Aim(Vector3 aimPoint) {
-       
-            this.transform.LookAt(aimPoint);
-        
-    }
-
     public void OnTriggerHold() {
         Shoot();
         triggerReleasedSinceLastShot = false;
