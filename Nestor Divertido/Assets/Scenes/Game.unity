@@ -9129,6 +9129,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
         type: 3}
+      propertyPath: initialTileColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
+        type: 3}
+      propertyPath: initialTileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
+        type: 3}
+      propertyPath: initialTileColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
+        type: 3}
       propertyPath: waves.Array.data[4].infinite
       value: 1
       objectReference: {fileID: 0}
@@ -9281,6 +9296,31 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[4].skinColor.r
       value: 0.7783019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
+        type: 3}
+      propertyPath: waves.Array.data[0].liveVariation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
+        type: 3}
+      propertyPath: waves.Array.data[1].liveVariation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
+        type: 3}
+      propertyPath: waves.Array.data[2].liveVariation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
+        type: 3}
+      propertyPath: waves.Array.data[3].liveVariation
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
+        type: 3}
+      propertyPath: waves.Array.data[4].liveVariation
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8323148430436134945, guid: 8f842770af7dc534bb7ed8e23fa386d8,
         type: 3}

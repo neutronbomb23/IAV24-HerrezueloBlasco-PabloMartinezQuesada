@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Spawner : MonoBehaviour {
     public Wave[] waves;
     public Enemy enemy;
     public Color initialTileColor = Color.white;
     private int enemySpawnedCount = 0;
-
+    private System.Random rnd;
     LivingEntity playerEntity;
     Transform playerT;
 
@@ -91,13 +92,19 @@ public class Spawner : MonoBehaviour {
     // Instancia al enemigo en el tile seleccionado
     void InstantiateEnemy() {
         Transform spawnTile = map.GetRandomOpenTile();
+        Debug.Log(currentWave.liveVariation);
+        
+        Debug.Log(currentWave.enemyHealth);
         Enemy spawnedEnemy = Instantiate(enemy, spawnTile.position + Vector3.up, Quaternion.identity) as Enemy;
+        int enemyLife = currentWave.enemyHealth + Random.Range(0, currentWave.liveVariation + 1);
+     
+        
         //Debug.Log("B");
         spawnedEnemy.name = "Fede_" + enemySpawnedCount.ToString();
         //Debug.Log("B");
         spawnedEnemy.OnDeath += OnEnemyDeath;
         //Debug.Log("B");
-        spawnedEnemy.SetCharacteristics(currentWave.moveSpeed, currentWave.hitsToKillPlayer, currentWave.enemyHealth, currentWave.skinColor);
+        spawnedEnemy.SetCharacteristics(currentWave.moveSpeed, currentWave.hitsToKillPlayer, enemyLife, currentWave.skinColor);
         //Debug.Log("C");
     }
 
@@ -151,7 +158,8 @@ public class Spawner : MonoBehaviour {
 
         public float moveSpeed;
         public int hitsToKillPlayer;
-        public float enemyHealth;
+        public int enemyHealth;
         public Color skinColor;
+        public int liveVariation;
     }
 }
