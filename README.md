@@ -14,43 +14,68 @@ El juego se desarrolla en un entorno de combate donde los personajes de la IA en
 - **Tiempo Real:** El juego opera en tiempo real, donde las decisiones estratégicas de la IA se evalúan continuamente.
 - **Aprendizaje y Adaptación de la IA:** La IA evalúa su rendimiento y adapta su estrategia en función del análisis en tiempo real del estado del juego y las acciones del oponente.
 
+### Humanización de la IA
+La IA se ha diseñado para comportarse de manera más humana, incluyendo la capacidad de fallar disparos y rotar de manera natural. Además, los enemigos tienen distintas cantidades de vida, añadiendo variedad al enfrentamiento.
+
+### **Modos de Ataque del Jugador**
+El jugador puede alternar entre dos modos de ataque presionando la tecla "L":
+- Ataque al enemigo con menos vida.
+- Ataque al enemigo más cercano.
+
 ## Plataforma de Desarrollo
 Se utilizará Unity 2022.3.5f1 junto con Apex Utility AI para desarrollar un entorno interactivo y visualmente atractivo. El código y los recursos estarán disponibles en un repositorio de GitHub proporcionado por el profesor.
 
 ## Estructura del Proyecto
-### Clase `CombatSystem`
-<details>
-<summary>Gestiona la lógica de combate y las decisiones de la IA.</summary>
+### Clase `Player`
+```mermaid
+classDiagram
+    class Player {
+        +float moveSpeed
+        +PlayerController controller
+        +GunController gunController
+        +int startingLifePacks
+        +int currentLifePacks
+        +Vector3 spawnPoint
+        +float thresholdCursorDistanceSquared
+        +bool isInvincible
+        +float invincibilityCoolDown
+        +NavMeshAgent agent
+        +event System.Action~int~ OnChangeLPValue
+        +void Start()
+        +void Awake()
+        +void TakeDamage(float damage)
+        +void InvincibilityTimer(float coolDownInSecs)
+        +void EndInvincibility()
+        +void AddLifePack()
+        +void UseLifePack()
+        +void OnNewWave(int waveNumber)
+        +void ResetPosition()
+        +void Update()
+        +void Die()
+        +bool HasAnyBulletInCharger()
+        +bool HasAnyChargers()
+        +void Shoot()
+        +void AimAndShoot(float coolDownToShoot)
+    }
+```
 
-#### Propiedades
-- `currentState`: Estado actual del combate.
-- `players`: Lista de personajes en el combate.
-- `iaStrategies`: Diccionario de estrategias disponibles para la IA.
+```mermaid
+classDiagram
+    class PlayerController {
+        +Vector3 velocity
+        +Rigidbody myRigidbody
+        +NavMeshAgent agent
+        +Vector3 desiredPositionByAI
+        +float rotationSpeed
+        +void Awake()
+        +void FixedUpdate()
+        +void Move(Vector3 _velocity)
+        +void LookAt(Transform target)
+        +void MoveAgentTo(Vector3 position)
+        +void MoveAgent()
+    }
 
-#### Métodos
-- `InitializeCombat()`: Prepara el campo de batalla y establece los participantes.
-- `UpdateState()`: Actualiza el estado del combate en tiempo real.
-- `EvaluateActions()`: Utiliza Apex Utility AI para determinar la mejor acción en función de la estrategia actual.
-- `ExecuteAction(action)`: Aplica la acción elegida en el campo de batalla.
-- `AdaptStrategy()`: Evalúa los resultados y ajusta la estrategia de la IA si es necesario.
-
-</details>
-
-### Clase `Character`
-<details>
-<summary>Define las características y capacidades de los personajes del juego.</summary>
-
-#### Propiedades
-- `health`: Vida del personaje.
-- `ammo`: Munición disponible.
-- `strength`: Poder de ataque.
-- `coverAvailable`: Indica si hay cobertura disponible.
-
-#### Métodos
-- `Shoot(target)`: Dispara a un objetivo.
-- `Heal()`: Restaura salud.
-- `Reload()`: Recarga la munición.
-- `TakeCover()`: Busca cobertura para reducir daño recibido.
+```
 
 </details>
 
@@ -128,38 +153,14 @@ graph TD
         Q1 --> Q2 --> Q3
     end
 ```
-Este diagrama muestra los principales estados y transiciones del enemigo, incluyendo la configuración inicial, la actualización del comportamiento, el inicio del ataque, la realización del ataque y la finalización del ataque.
----
 
-
-```mermaid
-classDiagram
-    class CombatSystem {
-        -string currentState
-        -List players
-        -Dictionary iaStrategies
-        +void InitializeCombat()
-        +void UpdateState()
-        +void EvaluateActions()
-        +void ExecuteAction(action)
-        +void AdaptStrategy()
-    }
-    class Character {
-        -int health
-        -int ammo
-        -int strength
-        -int defense
-        -bool coverAvailable
-        +void Shoot(target)
-        +void Heal()
-        +void Reload()
-        +void TakeCover()
-    }
-    CombatSystem "1" *-- "many" Character : contains
-```
 
 ### Pruebas y Evaluación
 Las pruebas se centrarán en la efectividad de las estrategias de IA, midiendo la capacidad de adaptación y la toma de decisiones en situaciones de combate variadas. Se utilizarán métricas como tasa de victoria, uso eficiente de recursos (munición y vida) y cambios de estrategia efectuados.
+
+### Vídeo Demostrativo
+Un vídeo demostrativo del proyecto está disponible en el siguiente enlace: [ESTAFA](https://www.youtube.com/watch?v=qEx45w1X3bc)
+
 
 ### Documentación y Repositorio
 La documentación completa del proyecto, incluyendo código, recursos y un vídeo demostrativo, estará disponible en un repositorio de GitHub. Esto permitirá una revisión detallada del enfoque y la implementación de las estrategias de IA en un entorno de combate dinámico.
