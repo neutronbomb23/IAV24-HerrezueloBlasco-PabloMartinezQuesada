@@ -159,7 +159,7 @@ graph TD
 Las pruebas se centrarán en la efectividad de las estrategias de IA, midiendo la capacidad de adaptación y la toma de decisiones en situaciones de combate variadas. Se utilizarán métricas como tasa de victoria, uso eficiente de recursos (munición y vida) y cambios de estrategia efectuados.
 
 ### Vídeo Demostrativo
-Un vídeo demostrativo del proyecto está disponible en el siguiente enlace: [link VIDEO](https://youtu.be/kJgEEXlvNuI)
+Un vídeo demostrativo del proyecto está disponible en el siguiente enlace: [link VIDEO](https://youtu.be/pM_U1lsDRuc)
 
 
 ### Documentación y Repositorio
