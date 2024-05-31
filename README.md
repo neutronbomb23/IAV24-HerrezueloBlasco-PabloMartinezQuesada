@@ -17,7 +17,7 @@ El juego se desarrolla en un entorno de combate donde los personajes de la IA en
 ### Humanización de la IA
 La IA se ha diseñado para comportarse de manera más humana, incluyendo la capacidad de fallar disparos y rotar de manera natural. Además, los enemigos tienen distintas cantidades de vida, añadiendo variedad al enfrentamiento.
 
-### **Modos de Ataque del Jugador**
+### **Modos de Ataque de la IAr**
 El jugador puede alternar entre dos modos de ataque presionando la tecla "L":
 - Ataque al enemigo con menos vida.
 - Ataque al enemigo más cercano.
@@ -78,12 +78,6 @@ classDiagram
 ```
 
 </details>
-
-## Estrategias de la IA
-La IA puede alternar entre tres estrategias principales, que se evalúan y ajustan continuamente:
-1. **Ammo Conservation (AC):** Gestiona la munición de forma eficiente, priorizando disparos precisos.
-2. **Health Management (HM):** Prioriza curarse cuando la salud es baja.
-3. **Cover Utilization (CU):** Utiliza la cobertura de manera efectiva para minimizar el daño recibido.
 
 ## Diagrama de Clases
 ### Diagrama de Funcionamiento del Enemigo
