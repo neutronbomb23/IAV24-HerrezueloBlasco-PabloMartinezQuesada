@@ -5,14 +5,15 @@
 - Pablo Martínez Quesada (Ares75643)
 
 ## Propuesta
-Este proyecto implementa inteligencia artificial avanzada en un juego de disparos en tercera persona. La IA será capaz de adaptar dinámicamente su estrategia usando Apex Utility AI para evaluar probabilidades y el impacto de diferentes acciones en función del estado cambiante del juego. Las estrategias pueden incluir la gestión eficiente de munición, elegir los momentos adecuados para curarse y decidir cuándo cubrirse.
+Este proyecto implementa inteligencia artificial avanzada en un juego de disparos en tercera persona. La IA será capaz de adaptar dinámicamente su estrategia en función del estado cambiante del juego. Las estrategias pueden incluir la gestión eficiente de munición, elegir los momentos adecuados para curarse y decidir cuándo cubrirse.
 
 ### Escenario del Juego
-El juego se desarrolla en un entorno de combate donde los personajes de la IA enfrentan a un oponente que puede ser otro jugador o una segunda IA con estrategias distintas. El objetivo es demostrar la capacidad de adaptación de la IA en un entorno competitivo y dinámico.
+El juego se desarrolla en un entorno de combate estructurado por oleadas. Con cada oleada, varía el número de enemigos, la cantidad de vidas que tienen, y la frecuencia de aparición de paquetes de vida y cargadores. El objetivo es demostrar la capacidad de adaptación de la IA en un entorno competitivo y dinámico.
 
 ### Mecánica de Juego
 - **Tiempo Real:** El juego opera en tiempo real, donde las decisiones estratégicas de la IA se evalúan continuamente.
-- **Aprendizaje y Adaptación de la IA:** La IA evalúa su rendimiento y adapta su estrategia en función del análisis en tiempo real del estado del juego y las acciones del oponente.
+- **Adaptación Dinámica:** La IA adapta su estrategia basándose en el análisis del estado del juego y las acciones del oponente, ajustando sus tácticas en respuesta a las condiciones cambiantes de cada oleada.
+
 
 ### Humanización de la IA
 La IA se ha diseñado para comportarse de manera más humana. Se sige posicionando estrategicamente para evitar recibir daño de los enemigos y les dispara desde la posicion "más segura". Se ha incluido la capacidad de fallar disparos (especialmente cuando dispara en movimiento), para acercarlo lo maximo posible al comportamiento de un jugador real y rota de manera natural, poco a poco hacia su proximo objetivo. 
