@@ -23,7 +23,7 @@ El jugador puede alternar entre dos modos de ataque presionando la tecla "L":
 - Ataque al enemigo más cercano.
 
 ## Plataforma de Desarrollo
-Se utilizará Unity 2022.3.5f1 junto con Apex Utility AI para desarrollar un entorno interactivo y visualmente atractivo. El código y los recursos estarán disponibles en un repositorio de GitHub proporcionado por el profesor.
+Se utilizará Unity 2022.3.18f1 junto con para desarrollar un entorno interactivo y visualmente atractivo. El código y los recursos estarán disponibles en un repositorio de GitHub proporcionado por el profesor.
 
 ## Estructura del Proyecto
 ### Clase `Player`
