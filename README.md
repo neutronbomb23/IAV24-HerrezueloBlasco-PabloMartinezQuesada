@@ -15,7 +15,7 @@ El juego se desarrolla en un entorno de combate donde los personajes de la IA en
 - **Aprendizaje y Adaptación de la IA:** La IA evalúa su rendimiento y adapta su estrategia en función del análisis en tiempo real del estado del juego y las acciones del oponente.
 
 ### Humanización de la IA
-La IA se ha diseñado para comportarse de manera más humana, incluyendo la capacidad de fallar disparos y rotar de manera natural. Además, los enemigos tienen distintas cantidades de vida, añadiendo variedad al enfrentamiento.
+La IA se ha diseñado para comportarse de manera más humana. Se sige posicionando estrategicamente para evitar recibir daño de los enemigos y les dispara desde la posicion "más segura". Se ha incluido la capacidad de fallar disparos (especialmente cuando dispara en movimiento), para acercarlo lo maximo posible al comportamiento de un jugador real y rota de manera natural, poco a poco hacia su proximo objetivo. 
 
 ### **Modos de Ataque de la IA**
 El jugador puede alternar entre dos modos de ataque presionando la tecla "L":
