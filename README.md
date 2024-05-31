@@ -17,7 +17,7 @@ El juego se desarrolla en un entorno de combate donde los personajes de la IA en
 ### Humanización de la IA
 La IA se ha diseñado para comportarse de manera más humana, incluyendo la capacidad de fallar disparos y rotar de manera natural. Además, los enemigos tienen distintas cantidades de vida, añadiendo variedad al enfrentamiento.
 
-### **Modos de Ataque de la IAr**
+### **Modos de Ataque de la IA**
 El jugador puede alternar entre dos modos de ataque presionando la tecla "L":
 - Ataque al enemigo con menos vida.
 - Ataque al enemigo más cercano.
