@@ -153,7 +153,47 @@ graph TD
         Q1 --> Q2 --> Q3
     end
 ```
+### AI MANAGER
 
+### Características Principales
+- **Administración de comportamientos:** Permite alternar entre dos comportamientos principales (ataque por proximidad y prioridad a enemigos con baja salud) mediante la tecla "L".
+- **Escaneo y detección:** Periodicamente escanea el entorno en busca de enemigos y objetos útiles dentro del rango especificado.
+- **Movimiento táctico:** Decidir si moverse hacia un objeto útil o reposicionarse estratégicamente en el campo de batalla según la situación.
+- **Acciones de combate:** Decide cuándo recargar el arma, usar botiquines de salud, o iniciar un ataque según el comportamiento configurado.
+- **Selección de objetivos y ataque:** Calcula el objetivo más adecuado y realiza el ataque cuando es oportuno.
+
+### Diagrama de Flujo del `AIManager`
+```mermaid
+graph TD
+    A(Awake) --> B(Start)
+    B --> C(Update)
+    C -->|Cada Intervalo| D(Scan)
+    D --> E{Tiene Enemigos?}
+    E -->|No| C
+    E -->|Sí| F(TacticalMovement)
+    F --> G(PlayerAction)
+    G --> C
+
+    subgraph "Procesos Internos de Scan"
+        D --> D1(ScanForEnemies)
+        D --> D2(ScanForPickups)
+        D --> D3(ScanForPositions)
+    end
+
+    subgraph "Acciones Tácticas"
+        F -->|Encuentra Objeto Útil| F1(MoveToPickup)
+        F -->|Recargar Arma| F2(ReloadGun)
+        F --> F3(GetBestPosition)
+    end
+
+    subgraph "Acciones del Jugador"
+        G -->|Usar Botiquín| G1(UseLifePack)
+        G -->|Ataque por Proximidad| G2(ProximityAttack)
+        G -->|Prioridad a Baja Salud| G3(LowHealthPriorityAttack)
+    end
+```
+Este diagrama visualiza cómo el AIManager interactúa con sus subcomponentes y gestiona el flujo de decisión para controlar las acciones del personaje de IA en tiempo real. Cada función y decisión se realiza en base a la situación actual del juego, lo que permite una adaptación y respuesta dinámica a las circunstancias cambiantes del entorno y las tácticas del enemigo.
+--- 
 
 ### Pruebas y Evaluación
 Las pruebas se centrarán en la efectividad de las estrategias de IA, midiendo la capacidad de adaptación y la toma de decisiones en situaciones de combate variadas. Se utilizarán métricas como tasa de victoria, uso eficiente de recursos (munición y vida) y cambios de estrategia efectuados.
